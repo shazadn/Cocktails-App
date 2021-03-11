@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_frag_nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+<!--    <fragment-->
+<!--        android:id="@+id/tabs_fragment"-->
+<!--        android:name="com.project.cocktails.TabsFragment"-->
+<!--        android:label="TabsFragment">-->
+<!--        <action-->
+<!--            android:id="@+id/action_TabsFragment_to_FirstFragment"-->
+<!--            app:destination="@id/FirstFragment" />-->
+<!--    </fragment>-->
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.project.cocktails.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/CocktailDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CocktailDetailsFragment"
+        android:name="com.project.cocktails.CocktailDetailsFragment"
+        android:label="@string/cocktail_view_fragment_label"
+        tools:layout="@layout/fragment_cocktail_details">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.project.cocktails.domain.Cocktail"></argument>
+    </fragment>
+    <fragment
+        android:id="@+id/NonAlcFragment"
+        android:name="com.project.cocktails.Non_AlcoholicFragment"
+        tools:layout="@layout/non__alcoholic_fragment">
+
+        <action
+            android:id="@+id/action_NonAlc_to_NonAlcDetails"
+            app:destination="@id/NonAlcDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/NonAlcDetailsFragment"
+        android:name="com.project.cocktails.NonAlcDetailsFragment"
+        tools:layout="@layout/fragment_non_alc_details">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.project.cocktails.domain.NonAlcohol"></argument>
+    </fragment>
+    <fragment
+        android:id="@+id/RandomFragment"
+        android:name="com.project.cocktails.RandomFragment"
+        tools:layout="@layout/fragment_random">
+
+        <action
+            android:id="@+id/action_Random_to_RandomDetails"
+            app:destination="@id/RandomDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RandomDetailsFragment"
+        android:name="com.project.cocktails.RandomDetailsFragment"
+        tools:layout="@layout/fragment_random_details">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.project.cocktails.domain.Random"></argument>
+    </fragment>
+</navigation>

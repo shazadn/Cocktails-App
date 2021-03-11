@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="results"
+            type="com.project.cocktails.domain.Random" />
+
+        <variable
+            name="resultsCallback"
+            type="com.project.cocktails.recycler_adapters.RandomClick" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="#E7A577"
+            app:cardCornerRadius="12dp"
+            app:contentPadding="4dp"
+            app:elevation="3dp">
+
+            <TextView
+                android:id="@+id/tvRandom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Random Drink"
+                android:text="@{results.strDrink}"
+                android:textColor="#0C0C0C"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/clickableOverlay"
+                android:layout_width="402dp"
+                android:layout_height="98dp"
+                android:onClick="@{() -> resultsCallback.onClick(results)}" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</layout>
